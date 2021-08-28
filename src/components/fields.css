@@ -1,0 +1,24 @@
+.fields-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 15px;
+    border-left: 4px solid gray;
+}
+
+.child::before{
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 4px;
+    background: gray;
+    position: relative;
+    top: 26px;
+  }
+  .child-icon{
+    cursor: pointer;
+    color: gray;
+  }
+  .child-icon > i{
+    vertical-align: sub;
+  }
