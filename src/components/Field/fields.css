@@ -1,12 +1,15 @@
-.fields-wrapper{
+.field-wrapper{
     display: flex;
     flex-direction: column;
     gap: 2px;
     margin-left: 15px;
     border-left: 4px solid gray;
 }
-
-.child::before{
+.field-child{
+  display: flex;
+  gap: 4px;
+}
+.field-child::before{
     content: "";
     display: inline-block;
     width: 32px;
@@ -15,10 +18,25 @@
     position: relative;
     top: 26px;
   }
-  .child-icon{
+  .field-child-icon{
     cursor: pointer;
     color: gray;
   }
-  .child-icon > i{
+  .field-child-icon > i{
     vertical-align: sub;
+  }
+
+  .field-label{
+    display: flex;
+    gap: 4px;
+  }
+
+  .field-label-name{
+    padding:4px 6px;
+  }
+
+  .child-fields-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: -24px;
   }

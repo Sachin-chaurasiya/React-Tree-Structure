@@ -22,18 +22,18 @@ const Field = ({name,type,fields}:FieldProps) => {
     }
 
     return (
-        <div className="fields-wrapper" style={{paddingLeft:flag?"26px":"0px"}}>
-            <div className="child" style={{display:"flex",gap:"4px",marginLeft:flag?"-26px":"0px"}}>
-                <p className="child-icon" onClick={showChildrenHandler}>
+        <div className="field-wrapper" style={{paddingLeft:flag?"26px":"0px"}}>
+            <div className="field-child" style={{marginLeft:flag?"-26px":"0px"}}>
+                <p className="field-child-icon" onClick={showChildrenHandler}>
                 {getIcon()}   
                 </p>   
-                <p style={{display:"flex",gap:"4px"}} >
+                <p className="field-label"  >
                     <span style={{...getStyle(type),minWidth:"32px",textAlign:"center"}}>{type}</span>
-                    <span style={{padding:"4px 6px"}}>{name}</span>
+                    <span className="field-label-name">{name}</span>
                 </p>
             </div>    
             {flag && showChildren &&
-            <div style={{display:"flex",flexDirection:"column",marginTop:"-24px"}}>
+            <div className="child-fields-wrapper">
             {(fields??[]).map((field,index)=><Field key={index} {...field} /> )} 
             </div>
             }
