@@ -1,4 +1,5 @@
 import React,{useState,useCallback} from "react"
+import { getStyle } from "../../Utils/FieldUtils";
 
 import "./fields.css"
 
@@ -8,29 +9,13 @@ type FieldProps={
     fields?:Array<FieldProps>
 }
 
-const Fields = ({name,type,fields}:FieldProps) => {
+const Field = ({name,type,fields}:FieldProps) => {
     const [showChildren,setShowChildren]=useState<boolean>(false);
     const flag=(fields??[]).length>0
 
     const showChildrenHandler=useCallback(()=>{
       setShowChildren(!showChildren)
     },[showChildren,setShowChildren])
-
-    const getStyle=(type:string)=>{
-        switch (type) {
-            case "record":
-                return {border:"2px solid orange",padding:"4px 6px",color:"orange"}
-                
-            case "string":
-                return {border:"2px solid blue",padding:"4px 6px",color:"blue"}
-
-            case "int":
-                return {border:"2px solid green",padding:"4px 6px",color:"green"}
-                
-            default:
-                return {border:"2px solid #21243d",padding:"4px 6px"}
-        }
-    }
 
     const getIcon=()=>{
      return flag && (showChildren?<i className="fas fa-minus-circle"/>:<i className="fas fa-plus-circle"/>)
@@ -49,11 +34,11 @@ const Fields = ({name,type,fields}:FieldProps) => {
             </div>    
             {flag && showChildren &&
             <div style={{display:"flex",flexDirection:"column",marginTop:"-24px"}}>
-            {(fields??[]).map((field,index)=><Fields key={index} {...field} /> )} 
+            {(fields??[]).map((field,index)=><Field key={index} {...field} /> )} 
             </div>
             }
         </div>
     )
 }
 
-export default Fields
+export default Field

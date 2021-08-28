@@ -1,14 +1,14 @@
 import React from 'react';
 
 import './App.css';
-import Fields from './components/fields';
+import Field from './components/Field/Field';
 import { JSONObject } from './data';
 
 const {namespace,...newType}=JSONObject
 function App() {
   return (
     <div className="App">
-      <Fields {...newType} />
+      <Field {...newType} />
     </div>
   );
 }
