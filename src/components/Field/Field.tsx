@@ -1,16 +1,17 @@
 import React,{useState,useCallback} from "react"
 import { getStyle } from "../../Utils/FieldUtils";
 
-import "./fields.css"
+import "./Field.css"
 
 type FieldProps={
     name:string;
     type:string;
     fields?:Array<FieldProps>
+    isCollapsed?:boolean
 }
 
-const Field = ({name,type,fields}:FieldProps) => {
-    const [showChildren,setShowChildren]=useState<boolean>(false);
+const Field = ({name,type,fields,isCollapsed=false}:FieldProps) => {
+    const [showChildren,setShowChildren]=useState<boolean>(isCollapsed);
     const flag=(fields??[]).length>0
 
     const showChildrenHandler=useCallback(()=>{

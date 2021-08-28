@@ -8,7 +8,7 @@ const {namespace,...newType}=JSONObject
 function App() {
   return (
     <div className="App">
-      <Field {...newType} />
+      <Field isCollapsed {...newType} />
     </div>
   );
 }
